@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="zh-CN.css" type="text/css" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+background-image: url(./images/tk_Heading_169.png)
+background-position: 50% 50%
+class: top, left,
+company: ©2019 ReshapeData
+author: 胡立磊
+
+## 企业级数据问题定义、建模、产品开发及行业应用
+
+--
+
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+
+
+### .red[&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;构建数据思维,重塑数据价值]
+&lt;br/&gt;
+#### &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{{author}}&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2019-04-16
+
+
+--
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+
+
+
+#### {{company}}
+---
+name: KDW
+layout: false
+background-image: url(./images/tk_Title_169.png)
+background-position: 50% 50%
+class: left, top, 
+
+
+
+---
+layout: true
+
+
+--
+
+### .matureBlue[市场定位]
+
+--
+
+### .golden[问题定义]
+
+--
+
+### .lightRed[模型构建]
+
+--
+
+### .green[产品开发]
+
+--
+
+### .darkBlue[开发过程]
+
+--
+
+### .skyBlue[行业应用]
+
+--
+
+### .darkcyan[案例分享]
+
+---
+name: KDB
+layout: true
+background-image: url(./images/tk_Body_169.png)
+background-position: 50% 50%
+class: left, top,
+---
+### .darkBlue[市场定位]
+
+---
+### .darkBlue[问题定义]
+---
+### .darkBlue[模型构建]
+--
+
+#### .matureBlue[数学模型]
+
+--
+
+#### .golden[统计模型]
+
+--
+
+#### .darkGray[机器学习]
+
+注：机器学习的内容不再详细描述
+
+---
+#### .darkBlue[数学模型——张量运算]
+
+m阶n维张量的定义
+
+
+`$$\mathcal{A}=(a_{i_1,\dots,i_m}), \quad a_{i_1,\dots,i_m}\in R, \quad 1\le i_1,\dots,i_m \le n.$$`
+
+更一般的定义(每一阶的维度不要求相同)
+&lt;br/&gt;
+
+`$$vec(\mathcal{X})=\left(\begin{gathered}x_{111}\\x_{112}\\\vdots\\x_{121}\\    x_{122} \\\vdots\\x_{N_1N_2N_3}\end{gathered}\right)\in R^{n_1n_2n_3},\mathcal{X}\in R^{n_1\times n_2\times n_3}$$`
+---
+#### .darkBlue[统计模型——主成分分析PCA]
+
+---
+#### .darkBlue[统计模型——广义线性模型GLM]
+
+```r
+library(dpdc)
+data('glm_logistics_data1',package = 'dpdc')
+log_model &lt;- glm(FHaveCar~Fincome,family = binomial,data=glm_logistics_data1)
+Fincome &lt;-min(glm_logistics_data1$Fincome):max(glm_logistics_data1$Fincome);
+probability&lt;-log_fits(log_model,Fincome);
+par(mfrow=c(1:2)); plot(glm_logistics_data1,main='原始数据');
+start_point &lt;-as.numeric(names(probability)[probability &gt;0][1]);
+end_point &lt;- as.numeric(names(probability)[probability ==1][1]);
+abline(v =start_point,col='red');abline(v = end_point,col='blue');
+plot(Fincome,probability,main='模型数据');
+abline(v =start_point,col='red');abline(v = end_point,col='blue')
+```
+
+![](企业级数据问题定义建模产品开发及行业应用_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+
+
+---
+class: center
+### .darkBlue[产品开发]
+
+ 
+![图片说明](images/img_dev_cycle1.png)
+ 
+
+---
+### .darkBlue[开发过程]
+---
+### .darkBlue[行业应用]
+---
+### .darkBlue[案例分享]
+---
+### .darkBlue[附录1]
+---
+### .darkBlue[附录2]
+---
+### .darkBlue[附录3]
+
+---
+layout: false
+name: KDTHX
+background-image: url(./images/tk_Thankyou_169.png)
+background-position: 20% 50%
+    </textarea>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

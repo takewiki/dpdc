@@ -40,6 +40,11 @@ author: 胡立磊
 
 #### {{company}}
 ---
+class: center,middle
+### 简历
+![图片说明](images/img_resume_hulilei.png)
+
+---
 name: KDW
 layout: false
 background-image: url(./images/tk_Title_169.png)
@@ -89,25 +94,75 @@ class: left, top,
 ---
 ### .darkBlue[市场定位]
 
+
+.center[![图片说明](images/img_location.png)]
+
 ---
 ### .darkBlue[问题定义]
+
+.center[![图片说明](images/img_question.png)]
+
 ---
 ### .darkBlue[模型构建]
---
 
-#### .matureBlue[数学模型]
+.center[![图片说明](images/img_model_frame.png)]
+---
+### .darkBlue[产品开发]
 
---
-
-#### .golden[统计模型]
-
---
-
-#### .darkGray[机器学习]
-
-注：机器学习的内容不再详细描述
+ 
+.center[![图片说明](images/img_rd_pdm_a.png)]
+ 
 
 ---
+### .darkBlue[开发过程]
+
+.center[![图片说明](images/img_rd_pdm_b.png)]
+
+---
+### .darkBlue[行业应用]
+.pull-left[
+1. MES；
+
+1. 上市公司财报；
+
+1. 零售；
+
+1. 运营；
+
+1. 天气数据；
+
+1. 招聘；
+
+1. 电商;
+
+1. 外卖;
+]
+
+.pull-right[
+1. 会员；
+
+1. 收银；
+
+1. 传感器；
+
+1. PDA；
+
+1. 商业系统;
+
+1. 邮件系统；
+
+1. ERP;
+
+1. PMS
+
+]
+---
+
+![图片说明](images/img_sh_data_gov.cn.png)
+---
+### .darkBlue[案例分享]
+---
+
 #### .darkBlue[数学模型——张量运算]
 
 m阶n维张量的定义
@@ -120,7 +175,65 @@ $$\mathcal{A}=(a_{i_1,\dots,i_m}), \quad a_{i_1,\dots,i_m}\in R, \quad 1\le i_1,
 
 $$vec(\mathcal{X})=\left(\begin{gathered}x_{111}\\x_{112}\\\vdots\\x_{121}\\    x_{122} \\\vdots\\x_{N_1N_2N_3}\end{gathered}\right)\in R^{n_1n_2n_3},\mathcal{X}\in R^{n_1\times n_2\times n_3}$$
 ---
+#### 张量的应用--财务分析
+.center[![图片说明](images/img_fi_analysis.png)]
+
+---
 #### .darkBlue[统计模型——主成分分析PCA]
+主成分分析（Principal Component Analysis，PCA）， 是一种统计方法。通过正交变换将一组可能存在相关性的变量转换为一组线性不相关的变量，转换后的这组变量叫主成分。
+![图片说明](images/img_pca_alysis.jpg)
+
+---
+#### 步骤1：获取数据数据
+```{r echo=FALSE, tidy=FALSE}
+library(dpdc);
+
+data('pca_data1');
+DT::datatable(
+  pca_data1,
+  fillContainer = FALSE, options = list(pageLength = 10)
+)
+```
+
+数据来源:费宇主编.多元统计分析——基于R.北京:中国人民大学出版社,2014，P88
+---
+#### 步骤2：计算相关系数
+```{r}
+pca_data2 <-pca_data1[,-1];
+rownames(pca_data2) <- pca_data1[,1];
+#pca_data2;
+pca_cor <-round(cor(pca_data2),3);
+pca_cor;
+```
+---
+####步骤3：主成分建模型
+```{r}
+pca_model <- princomp(pca_data2,cor = T);
+summary(pca_model,loadings = T);
+```
+
+---
+####步骤4： 特征值与确认主成分个数
+```{r}
+pca_summary <- summary(pca_model,loadings = T);
+#特征值
+pca_summary$sdev^2;
+#单个占比
+pca_summary$sd^2/sum(pca_summary$sd^2);
+#累计占比
+cumsum(pca_summary$sd^2/sum(pca_summary$sd^2));
+```
+---
+#### 步骤5：计算主成分得分
+```{r}
+#计算主成分得分
+pca_score <-round(pca_model$scores,3);
+pca_score <-addmargins(pca_score);
+pca_score <- as.data.frame(pca_score);
+#行业按得分进行排名，值越小实力越强
+pca_score_sorted <- pca_score[order(pca_score$Sum),]
+pca_score_sorted
+```
 
 ---
 #### .darkBlue[统计模型——广义线性模型GLM]
@@ -135,31 +248,10 @@ start_point <-as.numeric(names(probability)[probability >0][1]);
 end_point <- as.numeric(names(probability)[probability ==1][1]);
 abline(v =start_point,col='red');abline(v = end_point,col='blue');
 plot(Fincome,probability,main='模型数据');
-abline(v =start_point,col='red');abline(v = end_point,col='blue')
+abline(v =start_point,col='red');abline(v = end_point,col='blue');abline(h=0.8,col='green')
 
 ```
 
-
----
-class: center
-### .darkBlue[产品开发]
-
- 
-![图片说明](images/img_dev_cycle1.png)
- 
-
----
-### .darkBlue[开发过程]
----
-### .darkBlue[行业应用]
----
-### .darkBlue[案例分享]
----
-### .darkBlue[附录1]
----
-### .darkBlue[附录2]
----
-### .darkBlue[附录3]
 
 ---
 layout: false

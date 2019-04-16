@@ -3,6 +3,15 @@
   <head>
     <title></title>
     <meta charset="utf-8">
+    <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <script src="libs/jquery-1.12.4/jquery.min.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.4/datatables.js"></script>
+    <link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
     <link rel="stylesheet" href="zh-CN.css" type="text/css" />
     <link rel="stylesheet" href="extra.css" type="text/css" />
   </head>
@@ -26,7 +35,7 @@ author: 胡立磊
 
 ### .red[&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;构建数据思维,重塑数据价值]
 &lt;br/&gt;
-#### &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{{author}}&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2019-04-16
+#### &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{{author}}&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2019-04-17
 
 
 --
@@ -38,6 +47,11 @@ author: 胡立磊
 
 
 #### {{company}}
+---
+class: center,middle
+### 简历
+![图片说明](images/img_resume_hulilei.png)
+
 ---
 name: KDW
 layout: false
@@ -88,25 +102,75 @@ class: left, top,
 ---
 ### .darkBlue[市场定位]
 
+
+.center[![图片说明](images/img_location.png)]
+
 ---
 ### .darkBlue[问题定义]
+
+.center[![图片说明](images/img_question.png)]
+
 ---
 ### .darkBlue[模型构建]
---
 
-#### .matureBlue[数学模型]
+.center[![图片说明](images/img_model_frame.png)]
+---
+### .darkBlue[产品开发]
 
---
-
-#### .golden[统计模型]
-
---
-
-#### .darkGray[机器学习]
-
-注：机器学习的内容不再详细描述
+ 
+.center[![图片说明](images/img_rd_pdm_a.png)]
+ 
 
 ---
+### .darkBlue[开发过程]
+
+.center[![图片说明](images/img_rd_pdm_b.png)]
+
+---
+### .darkBlue[行业应用]
+.pull-left[
+1. MES；
+
+1. 上市公司财报；
+
+1. 零售；
+
+1. 运营；
+
+1. 天气数据；
+
+1. 招聘；
+
+1. 电商;
+
+1. 外卖;
+]
+
+.pull-right[
+1. 会员；
+
+1. 收银；
+
+1. 传感器；
+
+1. PDA；
+
+1. 商业系统;
+
+1. 邮件系统；
+
+1. ERP;
+
+1. PMS
+
+]
+---
+
+![图片说明](images/img_sh_data_gov.cn.png)
+---
+### .darkBlue[案例分享]
+---
+
 #### .darkBlue[数学模型——张量运算]
 
 m阶n维张量的定义
@@ -119,7 +183,166 @@ m阶n维张量的定义
 
 `$$vec(\mathcal{X})=\left(\begin{gathered}x_{111}\\x_{112}\\\vdots\\x_{121}\\    x_{122} \\\vdots\\x_{N_1N_2N_3}\end{gathered}\right)\in R^{n_1n_2n_3},\mathcal{X}\in R^{n_1\times n_2\times n_3}$$`
 ---
+#### 张量的应用--财务分析
+.center[![图片说明](images/img_fi_analysis.png)]
+
+---
 #### .darkBlue[统计模型——主成分分析PCA]
+主成分分析（Principal Component Analysis，PCA）， 是一种统计方法。通过正交变换将一组可能存在相关性的变量转换为一组线性不相关的变量，转换后的这组变量叫主成分。
+![图片说明](images/img_pca_alysis.jpg)
+
+---
+#### 步骤1：获取数据数据
+<div id="htmlwidget-f45ec904500b997a350a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f45ec904500b997a350a">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13"],["冶金","电力","煤炭","化学","机器","建材","森工","食品","纺织","缝纫","皮革","造纸","文教"],[101091,2035,3767,81557,215898,10351,8103,54935,52108,6126,6200,10383,19396],[52455,1973,21139,36241,203505,16219,6572,23078,23907,3930,5704,6155,13203],[19272,10313,1708,22504,10609,6382,12329,23804,21796,15586,10870,16875,14691],[16.1,7.1,8.2,25.9,12.6,8.7,22.2,41,21.5,29.5,12,27.5,17.8],[90342,4903,6735,49454,139190,12215,2372,11062,17111,1206,2150,5251,12341],[82,34.2,36.1,98.1,93.2,62.5,184.4,370.4,221.5,330.4,184.2,146.4,96.6],[192435,592077,726396,348226,139572,145818,20921,65486,63806,1840,8913,78796,6354],[0.172,0.003,0.003,0.985,0.628,0.066,0.152,0.263,0.276,0.437,0.274,0.151,1.574]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Fname<\/th>\n      <th>GIOV<\/th>\n      <th>ManCount<\/th>\n      <th>ManWorkRate<\/th>\n      <th>RPTF<\/th>\n      <th>FAnetValue<\/th>\n      <th>outputOnFA<\/th>\n      <th>FuelConsumption<\/th>\n      <th>EnergyEfficiency<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+数据来源:费宇主编.多元统计分析——基于R.北京:中国人民大学出版社,2014，P88
+---
+#### 步骤2：计算相关系数
+
+```r
+pca_data2 &lt;-pca_data1[,-1];
+rownames(pca_data2) &lt;- pca_data1[,1];
+#pca_data2;
+pca_cor &lt;-round(cor(pca_data2),3);
+pca_cor;
+```
+
+```
+##                    GIOV ManCount ManWorkRate   RPTF FAnetValue outputOnFA
+## GIOV              1.000    0.947       0.233  0.004      0.962     -0.104
+## ManCount          0.947    1.000      -0.055 -0.171      0.920     -0.198
+## ManWorkRate       0.233   -0.055       1.000  0.780      0.109      0.560
+## RPTF              0.004   -0.171       0.780  1.000     -0.166      0.827
+## FAnetValue        0.962    0.920       0.109 -0.166      1.000     -0.287
+## outputOnFA       -0.104   -0.198       0.560  0.827     -0.287      1.000
+## FuelConsumption  -0.080   -0.016      -0.452 -0.492      0.007     -0.609
+## EnergyEfficiency  0.247    0.186       0.301  0.174      0.203     -0.025
+##                  FuelConsumption EnergyEfficiency
+## GIOV                      -0.080            0.247
+## ManCount                  -0.016            0.186
+## ManWorkRate               -0.452            0.301
+## RPTF                      -0.492            0.174
+## FAnetValue                 0.007            0.203
+## outputOnFA                -0.609           -0.025
+## FuelConsumption            1.000           -0.299
+## EnergyEfficiency          -0.299            1.000
+```
+---
+####步骤3：主成分建模型
+
+```r
+pca_model &lt;- princomp(pca_data2,cor = T);
+summary(pca_model,loadings = T);
+```
+
+```
+## Importance of components:
+##                           Comp.1    Comp.2    Comp.3     Comp.4     Comp.5
+## Standard deviation     1.7618203 1.7024463 0.9641916 0.80002211 0.55395292
+## Proportion of Variance 0.3880013 0.3622904 0.1162082 0.08000442 0.03835798
+## Cumulative Proportion  0.3880013 0.7502918 0.8665000 0.94650438 0.98486236
+##                            Comp.6      Comp.7       Comp.8
+## Standard deviation     0.29433369 0.179011266 0.0492315593
+## Proportion of Variance 0.01082904 0.004005629 0.0003029683
+## Cumulative Proportion  0.99569140 0.999697032 1.0000000000
+## 
+## Loadings:
+##                  Comp.1 Comp.2 Comp.3 Comp.4 Comp.5 Comp.6 Comp.7 Comp.8
+## GIOV             -0.421 -0.383 -0.151                      -0.172  0.781
+## ManCount         -0.470 -0.283 -0.157 -0.174 -0.308        -0.521 -0.525
+## ManWorkRate       0.217 -0.449         0.514  0.540  0.290 -0.250 -0.219
+## RPTF              0.356 -0.399 -0.147  0.281 -0.315 -0.714              
+## FAnetValue       -0.474 -0.300 -0.111         0.185         0.756 -0.247
+## outputOnFA        0.391 -0.327 -0.319 -0.199 -0.453  0.582  0.232       
+## FuelConsumption  -0.218  0.376 -0.138  0.759 -0.417  0.195              
+## EnergyEfficiency        -0.272  0.893        -0.317  0.118
+```
+
+---
+####步骤4： 特征值与确认主成分个数
+
+```r
+pca_summary &lt;- summary(pca_model,loadings = T);
+#特征值
+pca_summary$sdev^2;
+```
+
+```
+##      Comp.1      Comp.2      Comp.3      Comp.4      Comp.5      Comp.6 
+## 3.104010727 2.898323458 0.929665496 0.640035383 0.306863834 0.086632321 
+##      Comp.7      Comp.8 
+## 0.032045033 0.002423746
+```
+
+```r
+#单个占比
+pca_summary$sd^2/sum(pca_summary$sd^2);
+```
+
+```
+##       Comp.1       Comp.2       Comp.3       Comp.4       Comp.5 
+## 0.3880013409 0.3622904323 0.1162081870 0.0800044229 0.0383579793 
+##       Comp.6       Comp.7       Comp.8 
+## 0.0108290402 0.0040056292 0.0003029683
+```
+
+```r
+#累计占比
+cumsum(pca_summary$sd^2/sum(pca_summary$sd^2));
+```
+
+```
+##    Comp.1    Comp.2    Comp.3    Comp.4    Comp.5    Comp.6    Comp.7 
+## 0.3880013 0.7502918 0.8665000 0.9465044 0.9848624 0.9956914 0.9996970 
+##    Comp.8 
+## 1.0000000
+```
+---
+#### 步骤5：计算主成分得分
+
+```r
+#计算主成分得分
+pca_score &lt;-round(pca_model$scores,3);
+pca_score &lt;-addmargins(pca_score);
+pca_score &lt;- as.data.frame(pca_score);
+#行业按得分进行排名，值越小实力越强
+pca_score_sorted &lt;- pca_score[order(pca_score$Sum),]
+pca_score_sorted
+```
+
+```
+##      Comp.1 Comp.2 Comp.3        Comp.4 Comp.5        Comp.6        Comp.7
+## 机器 -4.691 -2.403 -0.467 -7.830000e-01 -0.524 -1.900000e-02 -1.260000e-01
+## 食品  2.303 -2.313 -1.145  5.810000e-01 -0.601 -9.000000e-03 -4.600000e-02
+## 冶金 -1.526 -0.813 -0.562  4.920000e-01  1.109  2.000000e-03  4.060000e-01
+## Sum   0.002 -0.001  0.001 -1.387779e-16  0.001 -3.903128e-17  1.474515e-17
+## 缝纫  2.121 -0.839 -0.243 -5.320000e-01 -0.675  1.830000e-01  2.930000e-01
+## 森工  1.140  0.341 -0.298 -7.180000e-01  0.094 -3.160000e-01 -6.000000e-03
+## 纺织  0.881 -0.924 -0.368  1.320000e-01  0.545  4.900000e-01 -2.990000e-01
+## 造纸  1.246 -0.020 -0.306  8.600000e-02  0.387 -6.670000e-01 -1.780000e-01
+## 建材 -0.365  1.840 -0.035 -9.740000e-01  0.385 -2.150000e-01 -2.800000e-02
+## 化学 -0.466 -1.234  1.039  1.668000e+00  0.022 -8.100000e-02  2.000000e-03
+## 皮革  0.732  0.792  0.126 -1.155000e+00  0.243  3.960000e-01  2.300000e-02
+## 煤炭 -1.139  3.350 -0.422  6.060000e-01 -0.971 -6.300000e-02  8.600000e-02
+## 文教  0.315 -0.469  2.921 -2.900000e-01 -0.183 -7.000000e-03  7.000000e-03
+## 电力 -0.549  2.691 -0.239  8.870000e-01  0.170  3.060000e-01 -1.340000e-01
+##      Comp.8    Sum
+## 机器 -0.024 -9.037
+## 食品  0.056 -1.174
+## 冶金 -0.004 -0.896
+## Sum  -0.002  0.001
+## 缝纫 -0.078  0.230
+## 森工  0.036  0.273
+## 纺织  0.003  0.460
+## 造纸 -0.082  0.466
+## 建材  0.069  0.677
+## 化学  0.050  1.000
+## 皮革  0.029  1.186
+## 煤炭  0.026  1.473
+## 文教 -0.014  2.280
+## 电力 -0.069  3.063
+```
 
 ---
 #### .darkBlue[统计模型——广义线性模型GLM]
@@ -135,32 +358,11 @@ start_point &lt;-as.numeric(names(probability)[probability &gt;0][1]);
 end_point &lt;- as.numeric(names(probability)[probability ==1][1]);
 abline(v =start_point,col='red');abline(v = end_point,col='blue');
 plot(Fincome,probability,main='模型数据');
-abline(v =start_point,col='red');abline(v = end_point,col='blue')
+abline(v =start_point,col='red');abline(v = end_point,col='blue');abline(h=0.8,col='green')
 ```
 
-![](企业级数据问题定义建模产品开发及行业应用_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+![](企业级数据问题定义建模产品开发及行业应用_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
 
-
----
-class: center
-### .darkBlue[产品开发]
-
- 
-![图片说明](images/img_dev_cycle1.png)
- 
-
----
-### .darkBlue[开发过程]
----
-### .darkBlue[行业应用]
----
-### .darkBlue[案例分享]
----
-### .darkBlue[附录1]
----
-### .darkBlue[附录2]
----
-### .darkBlue[附录3]
 
 ---
 layout: false
